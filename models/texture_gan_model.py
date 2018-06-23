@@ -258,7 +258,7 @@ class TextureGANModel(BaseModel):
             0:self.fake_B_blocks[0].size(3)] = \
                 torch.unsqueeze(self.fake_B_blocks[0][0].data, 0)
             fake_B_block_encoded = util.tensor2im(fake_B_block)
-            ret_dict['real_C_block'] = real_C_block
+            ret_dict['real_C_block'] =s real_C_block
             ret_dict['fake_B_block'] = fake_B_block
         '''
 

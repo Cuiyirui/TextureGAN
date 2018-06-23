@@ -25,17 +25,17 @@ class TrainOptions(BaseOptions):
         self.parser.add_argument('--disc_iters', type=int, default=1, help='number of D updates per G update')
 
         # pre-train lambda parameters
-        self.parser.add_argument('--lambda_GAN', type=float, default=1, help='weight on D loss. D(G(A, E(B)))')
-        self.parser.add_argument('--lambda_s', type=float, default=0.1, help='weight for global style loss')
-        self.parser.add_argument('--lambda_p', type=float, default=10.0, help='weight for global pixel loss')
-        self.parser.add_argument('--lambda_c', type=float, default=10.0, help='weight for content loss')
+        self.parser.add_argument('--lambda_GAN', type=float, default=1e4, help='weight on D loss. D(G(A, E(B)))')
+        self.parser.add_argument('--lambda_s', type=float, default=0, help='weight for global style loss')
+        self.parser.add_argument('--lambda_p', type=float, default=1e2, help='weight for global pixel loss')
+        self.parser.add_argument('--lambda_c', type=float, default=1e3, help='weight for content loss')
         self.parser.add_argument('--use_same_D', type=bool, default=True, help='if two Ds share the weights or not')
         self.isTrain = True
 
         # fine-tune lambda parameters
-        self.parser.add_argument('--lambda_s_l', type=float, default=3e3, help='weight for local style loss')
-        self.parser.add_argument('--lambda_p_l', type=float, default=1, help='weight for local pixel loss')
-        self.parser.add_argument('--lambda_GAN_l', type=float, default=1, help='weight on local D loss')
+        self.parser.add_argument('--lambda_s_l', type=float, default=10, help='weight for local style loss')
+        self.parser.add_argument('--lambda_p_l', type=float, default=0.01, help='weight for local pixel loss')
+        self.parser.add_argument('--lambda_GAN_l', type=float, default=7e3, help='weight on local D loss')
         self.parser.add_argument('--lambda_g_l', type=float, default=0, help='weight for local glcm loss') # not used
 
         # content loss
